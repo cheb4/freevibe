@@ -1,0 +1,16 @@
+{
+  "name": "free-vibe-backend",
+  "version": "1.0.0",
+  "description": "backend of app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cheb",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "moment": "^2.29.4",
+    "nodemon": "^3.0.1"
+  }
+}
