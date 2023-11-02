@@ -63,7 +63,7 @@ const getFromMonday = (arr) => {
       month_number: Number(day.format("M")),
       year: Number(day.format("YYYY")),
     };
-    console.log(dayObject);
+    // console.log(dayObject);
     lastDays.push(dayObject);
   }
   return lastDays.reverse().concat(arr);
@@ -77,7 +77,7 @@ const getToSunday = (arr) => {
   if (arr.at(-1)["week_day"] === "Sunday") {
     return arr;
   }
-  console.log();
+  // console.log();
   let daysToGo;
   if (arr.at(-1)["week_day"] === "Saturday") {
     daysToGo = 1;
@@ -99,12 +99,12 @@ const getToSunday = (arr) => {
     year = year + 1;
     monthNumber = 0;
   }
-  console.log(year);
+  // console.log(year);
   const firstDaysOfMonth = moment({ year, month: monthNumber }).startOf(
     "month"
   );
-  console.log(firstDaysOfMonth);
-  console.log(moment({ year: 2024, month: 11 }).startOf("month"));
+  // console.log(firstDaysOfMonth);
+  // console.log(moment({ year: 2024, month: 11 }).startOf("month"));
   const lastDays = [];
   for (let i = 0; i < daysToGo; i++) {
     const day = firstDaysOfMonth.clone().add(i, "days");

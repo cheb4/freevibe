@@ -1,6 +1,6 @@
 import Cell from "./cell/Cell";
 import Weekday from "./cell/Weekday";
-
+import CalendarData from "../Controller/CalendarData";
 import { thisMonthJsonObjectFromMondayToSunday } from "./helperFunctions/CalendarNumbers";
 // Use the imported functions as needed
 // console.log(thisMonthJsonObjectFromMondayToSunday(2023, 10));
@@ -9,6 +9,10 @@ function Calendar() {
   const YEAR = 2023;
   const MONTH = 10;
   // replace when api is here
+  // console.log(CalendarData);
+  CalendarData.getAll().then((response) => console.log(response));
+  console.log(CalendarData);
+
   const thisMonthFromMondayToSunday = thisMonthJsonObjectFromMondayToSunday(
     YEAR,
     MONTH

@@ -1,8 +1,10 @@
 const express = require("express");
+const cors = require("cors");
+//
 const app = express();
 const port = 3005;
 
-// const calendarHelper = require("./helperFunctions/CalendarNumbers");
+app.use(cors);
 
 const processedDB = require("./helperFunctions/DbProcessing");
 // for development purposes
