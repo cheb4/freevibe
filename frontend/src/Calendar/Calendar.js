@@ -35,13 +35,13 @@ function Calendar() {
   return (
     <>
       <div className="calendar_container">
-        <Weekday WeekdayName={"Monday"} />
-        <Weekday WeekdayName={"Tuesday"} />
-        <Weekday WeekdayName={"Wensday"} />
-        <Weekday WeekdayName={"Thursday"} />
-        <Weekday WeekdayName={"Friday"} />
-        <Weekday WeekdayName={"Saturday"} />
-        <Weekday WeekdayName={"Sunday"} />
+        <Weekday WeekdayName={"Mon"} />
+        <Weekday WeekdayName={"Tue"} />
+        <Weekday WeekdayName={"Wen"} />
+        <Weekday WeekdayName={"Thu"} />
+        <Weekday WeekdayName={"Fri"} />
+        <Weekday WeekdayName={"Sat"} />
+        <Weekday WeekdayName={"Sun"} />
         {numberElements}
       </div>
     </>
