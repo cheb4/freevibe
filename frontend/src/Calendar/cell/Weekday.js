@@ -1,7 +1,7 @@
 import React from "react";
 
 const Weekday = ({ WeekdayName }) => {
-  const cellNumberName = `cell_number weekda`;
+  const cellNumberName = `cell_number weekday`;
   const cellName = `cell weekday-cell`;
   return (
     <div className={cellName}>
