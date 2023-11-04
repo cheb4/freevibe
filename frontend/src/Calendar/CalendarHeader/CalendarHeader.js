@@ -6,7 +6,7 @@ function CalendarHeader() {
 
   return (
     <div className="calendar_header">
-      <div className="month_and_year">OCTOBER 2023</div>
+      <div className="month_and_year">NOVEMBER 2023</div>
       <div className="monthNavigation">
         <div className="back"> {backward} </div>
         <div className="frorward"> {forward} </div>

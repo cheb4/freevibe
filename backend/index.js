@@ -8,8 +8,6 @@ app.use(cors());
 
 const processedDB = require("./helperFunctions/DbProcessing");
 // for development purposes
-const YEAR = 2023;
-const MONTH = 10;
 console.log("hello");
 // for development purposes
 app.get("/", (req, res) => {

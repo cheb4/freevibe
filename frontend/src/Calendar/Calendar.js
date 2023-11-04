@@ -3,35 +3,30 @@ import Cell from "./cell/Cell";
 import Weekday from "./cell/Weekday";
 import CalendarData from "../Controller/CalendarData";
 import CalendarHeader from "./CalendarHeader/CalendarHeader";
-// Use the imported functions as needed
+import { getCurrentDate } from "./helperFunctions/CurrentDate";
+
 function Calendar() {
   const [calendarData, setCalendarData] = useState([]);
-  // change it for with a function
-  const [currentDate, setCurrentDate] = useState({
-    month: "October",
-    month_number: 10,
-    day_number: 25,
-    year: 2023,
-  });
-  const numberElements = [];
+  const [DateToDisplay, setDateToDisplay] = useState({});
 
+  // effective parts start here :D
   useEffect(() => {
     CalendarData.getAll().then((response) => setCalendarData(response));
   }, []);
 
-  // const thisMonthFromMondayToSunday = thisMonthJsonObjectFromMondayToSunday(
-  //   YEAR,
-  //   MONTH
-  // );
-  // console.log(calendarData);
+  useEffect(() => {
+    setDateToDisplay(getCurrentDate());
+  }, []);
+  // effective parts end here :(
 
+  const numberElements = [];
   for (const day of calendarData) {
     numberElements.push(
       <Cell
         key={`${day.day}-${day.month_number}-${day.year}`}
         data={day}
         number={day.day}
-        currentDate={currentDate}
+        DateToDisplay={DateToDisplay}
       />
     );
   }
