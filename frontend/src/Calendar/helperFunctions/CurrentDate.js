@@ -1,8 +1,3 @@
-// import moment from "moment";
-//     // month: "October",
-//     // month_number: 11,
-//     // day_number: 25,
-//   /  // year: 2023,
 const monthNames = [
   "January",
   "February",
@@ -32,4 +27,36 @@ function getCurrentDate() {
   };
 }
 
-export { getCurrentDate };
+function addAMonth(monthToAdd) {
+  let month_number = monthToAdd.month_number + 1;
+  let day_number = monthToAdd.day_number;
+  let year = monthToAdd.year;
+  if (month_number === 13) {
+    month_number = 1;
+    year = monthToAdd.year + 1;
+  }
+  return {
+    month: monthNames[month_number - 1],
+    month_number: month_number,
+    day_number: day_number,
+    year: year,
+  };
+}
+
+function subtractAMonth(monthToSubtract) {
+  let month_number = monthToSubtract.month_number - 1;
+  let day_number = monthToSubtract.day_number;
+  let year = monthToSubtract.year;
+  if (month_number === 0) {
+    month_number = 12;
+    year = monthToSubtract.year - 1;
+  }
+  return {
+    month: monthNames[month_number - 1],
+    month_number: month_number,
+    day_number: day_number,
+    year: year,
+  };
+}
+
+export { getCurrentDate, addAMonth, subtractAMonth };

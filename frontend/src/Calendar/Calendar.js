@@ -3,7 +3,11 @@ import Cell from "./cell/Cell";
 import Weekday from "./cell/Weekday";
 import CalendarData from "../Controller/CalendarData";
 import CalendarHeader from "./CalendarHeader/CalendarHeader";
-import { getCurrentDate } from "./helperFunctions/CurrentDate";
+import {
+  getCurrentDate,
+  addAMonth,
+  subtractAMonth,
+} from "./helperFunctions/CurrentDate";
 
 function Calendar() {
   const [calendarData, setCalendarData] = useState([]);
@@ -30,10 +34,22 @@ function Calendar() {
       />
     );
   }
+
+  const nextMonth = () => {
+    setDateToDisplay(addAMonth(DateToDisplay));
+  };
+  const previousMonth = () => {
+    setDateToDisplay(subtractAMonth(DateToDisplay));
+  };
+
   return (
     <>
       <div className="calendar_element">
-        <CalendarHeader />
+        <CalendarHeader
+          DateToDisplay={DateToDisplay}
+          nextMonth={nextMonth}
+          previousMonth={previousMonth}
+        />
         <div className="calendar_container_month">
           <Weekday WeekdayName={"Mon"} />
           <Weekday WeekdayName={"Tue"} />
