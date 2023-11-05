@@ -17,8 +17,6 @@ function getCurrentDate() {
   const month = today.getMonth();
   const year = today.getFullYear();
   const date = today.getDate();
-  // console.log(monthNames[2]);
-
   return {
     month: monthNames[month],
     month_number: month + 1,
