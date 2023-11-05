@@ -18,8 +18,14 @@ app.get("/api/data/", (req, res) => {
   // res.send("Hello World!");
   // console.log(calendarHelper(YEAR, MONTH));
   console.log("I did send data from get processedDB");
+  console.log(req);
+  console.log("I did send data from get processedDB");
+  const YEAR = 2023;
+  const MONTH = 12;
   // res.send("iii");
-  res.send(JSON.stringify(processedDB)).status(200);
+  res
+    .send(JSON.stringify(processedDB.calendarWithCompleteNotes(YEAR, MONTH)))
+    .status(200);
 });
 
 app.listen(port, () => {
