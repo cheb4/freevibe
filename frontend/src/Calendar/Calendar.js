@@ -9,18 +9,23 @@ import {
   subtractAMonth,
 } from "./helperFunctions/CurrentDate";
 
+// import axios from "axios";
+
 function Calendar() {
+  const [DateToDisplay, setDateToDisplay] = useState(getCurrentDate());
   const [calendarData, setCalendarData] = useState([]);
-  const [DateToDisplay, setDateToDisplay] = useState({});
 
   // effective parts start here :D
   useEffect(() => {
-    CalendarData.getAll().then((response) => setCalendarData(response));
+    setDateToDisplay(getCurrentDate());
   }, []);
 
   useEffect(() => {
-    setDateToDisplay(getCurrentDate());
-  }, []);
+    CalendarData.getAll(DateToDisplay).then((response) =>
+      setCalendarData(response)
+    );
+  }, [DateToDisplay]);
+
   // effective parts end here :(
 
   const numberElements = [];
