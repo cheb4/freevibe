@@ -1,7 +1,13 @@
 import React from "react";
 import FreePeople from "./FreePeople";
 
-const Cell = ({ data, number, DateToDisplay }) => {
+const Cell = ({
+  data,
+  number,
+  DateToDisplay,
+  changeVisibilityOFInfoBox,
+  setInfoBoxData,
+}) => {
   let cellNumberName = `cell_number `;
   let cellName = `cell  `;
   // if (data.free) {
@@ -15,7 +21,13 @@ const Cell = ({ data, number, DateToDisplay }) => {
   }
 
   return (
-    <div className={cellName}>
+    <div
+      className={cellName}
+      onClick={() => {
+        changeVisibilityOFInfoBox();
+        setInfoBoxData(data);
+      }}
+    >
       <FreePeople data={data} />
       <div className={cellNumberName}>{number}</div>
     </div>

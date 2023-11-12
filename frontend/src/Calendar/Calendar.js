@@ -8,17 +8,17 @@ import {
   addAMonth,
   subtractAMonth,
 } from "./helperFunctions/CurrentDate";
+import CalenderInfoBox from "./CalenderInfoBox/CalenderInfoBox";
 
 // import axios from "axios";
 
 function Calendar() {
   const [DateToDisplay, setDateToDisplay] = useState(getCurrentDate());
   const [calendarData, setCalendarData] = useState([]);
+  const [InfoBoxVisible, setInfoBoxVisible] = useState(false);
+  const [InfoBoxDataToDisplay, setInfoBoxDataToDisplay] = useState({});
 
   // effective parts start here :D
-  useEffect(() => {
-    setDateToDisplay(getCurrentDate());
-  }, []);
 
   useEffect(() => {
     CalendarData.getAll(DateToDisplay).then((response) =>
@@ -27,7 +27,21 @@ function Calendar() {
   }, [DateToDisplay]);
 
   // effective parts end here :(
+  // Functioning part here
+  const nextMonth = () => {
+    setDateToDisplay(addAMonth(DateToDisplay));
+  };
+  const previousMonth = () => {
+    setDateToDisplay(subtractAMonth(DateToDisplay));
+  };
+  const changeVisibilityOFInfoBox = () => {
+    setInfoBoxVisible(!InfoBoxVisible);
+  };
+  const setInfoBoxData = (toDisplay) => {
+    setInfoBoxDataToDisplay(toDisplay);
+  };
 
+  //
   const numberElements = [];
   for (const day of calendarData) {
     numberElements.push(
@@ -36,20 +50,19 @@ function Calendar() {
         data={day}
         number={day.day}
         DateToDisplay={DateToDisplay}
+        changeVisibilityOFInfoBox={changeVisibilityOFInfoBox}
+        setInfoBoxData={setInfoBoxData}
       />
     );
   }
-
-  const nextMonth = () => {
-    setDateToDisplay(addAMonth(DateToDisplay));
-  };
-  const previousMonth = () => {
-    setDateToDisplay(subtractAMonth(DateToDisplay));
-  };
-
+  //
   return (
     <>
       <div className="calendar_element">
+        <CalenderInfoBox
+          isVisible={InfoBoxVisible}
+          DataToDisplay={InfoBoxDataToDisplay}
+        />
         <CalendarHeader
           DateToDisplay={DateToDisplay}
           nextMonth={nextMonth}
