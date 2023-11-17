@@ -5,12 +5,16 @@
   grid-template-columns: auto auto; /* auto for the left column, 1fr for the right column */
 }
 .CalendarInfoBox {
-  color: red;
+  /* color: red; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* flexbox */
   border: solid black 2px;
   grid-column: 1;
   grid-row: 2;
   align-self: center;
-  display: none;
+  /* display: none; */
 }
 .calendar_header {
   color: #000;
@@ -96,6 +100,6 @@
 .inactive_cell_number {
   color: #a8a8a8;
 }
-.visible {
-  display: unset;
+.invisible {
+  display: none;
 }

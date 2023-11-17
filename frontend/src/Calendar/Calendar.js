@@ -40,6 +40,11 @@ function Calendar() {
   const setInfoBoxData = (toDisplay) => {
     setInfoBoxDataToDisplay(toDisplay);
   };
+  const declareInfoBoxFreedom = (data) => {
+    console.log("i am free");
+    console.log(data);
+    console.log("i am free");
+  };
 
   //
   const numberElements = [];
@@ -62,6 +67,8 @@ function Calendar() {
         <CalenderInfoBox
           isVisible={InfoBoxVisible}
           DataToDisplay={InfoBoxDataToDisplay}
+          changeVisibilityOFInfoBox={changeVisibilityOFInfoBox}
+          declareInfoBoxFreedom={declareInfoBoxFreedom}
         />
         <CalendarHeader
           DateToDisplay={DateToDisplay}
