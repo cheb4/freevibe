@@ -33,6 +33,19 @@ app.post("/api/data/", (req, res) => {
     .send(JSON.stringify(processedDB.calendarWithCompleteNotes(YEAR, MONTH)))
     .status(200);
 });
+app.post("/api/data/free", (req, res) => {
+  // res.send("Hello World!");
+  // console.log(calendarHelper(YEAR, MONTH));
+  // console.clear();
+  console.log("I did send data from get processedDB");
+
+  console.log(req.body);
+  // const YEAR = 2023;
+  // const MONTH = 11;
+  // res.send("iii");
+  // console.log(`${req.body}`);
+  res.status(200);
+});
 
 app.post("/test/", (req, res) => {
   console.clear();

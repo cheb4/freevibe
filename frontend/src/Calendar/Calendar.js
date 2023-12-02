@@ -43,6 +43,7 @@ function Calendar() {
   const declareInfoBoxFreedom = (data) => {
     console.log("i am free");
     console.log(data);
+    CalendarData.freeUser(data);
     console.log("i am free");
   };
 
